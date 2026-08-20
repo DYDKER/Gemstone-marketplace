@@ -11,6 +11,8 @@ __pycache__/
 !.env.example
 
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .coverage
 htmlcov/
 
