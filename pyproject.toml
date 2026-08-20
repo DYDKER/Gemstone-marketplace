@@ -11,3 +11,29 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.4",
 ]
+
+[tool.ruff]
+  target-version = "py313"
+  line-length = 88
+  src = ["services"]
+
+  [tool.ruff.lint]
+  select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
+  ignore = ["E501"]
+
+  [tool.ruff.format]
+  quote-style = "double"
+  indent-style = "space"
+  line-ending = "auto"
+
+  [tool.mypy]
+  python_version = "3.13"
+  strict = true
+  files = ["services"]
+  exclude = ["\\.venv", "\\.git"]
+  show_error_codes = true
+
+  [tool.pytest.ini_options]
+  testpaths = ["services"]
+  python_files = ["test_*.py", "*_test.py"]
+  addopts = "-ra"
