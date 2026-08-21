@@ -7,7 +7,7 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from auth_service.infrastructure.config.settings import settings
-from auth_service.infrastructure.database.base import Base
+from auth_service.infrastructure.database.models.user import UserModel
 
 config = context.config
 
@@ -16,7 +16,7 @@ if config.config_file_name is not None:
 
 config.set_main_option("sqlalchemy.url", settings.database_url)
 
-target_metadata = Base.metadata
+target_metadata = UserModel.metadata
 
 
 def run_migrations_offline() -> None:
